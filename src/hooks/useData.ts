@@ -13,7 +13,7 @@ const useData = <T>(
   deps?: any[]
 ) => {
   const [data, setData] = useState<T[]>([]);
-  const [error, setError] = useState([]);
+  const [error, setError] = useState("");
   const [isLoading, setLoading] = useState(false);
 
   useEffect(
@@ -36,7 +36,7 @@ const useData = <T>(
           setLoading(false);
         });
 
-      return () => controller.abort;
+      return () => controller.abort();
     },
     deps ? [...deps] : []
   );
